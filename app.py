@@ -40,10 +40,10 @@ def main():
     db = client.training
 
     with open('keys.json', 'r') as f:
-        keys = json.load(f.read())
+        keys = json.loads(f.read())
 
     with open('collections.json', 'r') as f:
-        collections = json.load(f.read())
+        collections = json.loads(f.read())
 
     gym_bot = logbot.LogBot(db=db,
                             keys=keys,
