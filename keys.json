@@ -1,0 +1,12 @@
+{
+  "SS": "squat",
+  "SD": "deadlift",
+  "SB": "benchpress",
+  "SO": "overheadpress",
+  "SR": "pendlay-rows",
+  "SP": "pullups",
+
+  "CR": "running",
+  "CC": "cycling",
+  "MH": "heavybag"
+}
