@@ -3,7 +3,7 @@
   "SD": "deadlift",
   "SB": "benchpress",
   "SO": "overheadpress",
-  "SR": "pendlay-rows",
+  "SR": "pendlay_rows",
   "SP": "pullups",
   "CR": "running",
   "CC": "cycling",

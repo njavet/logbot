@@ -1,5 +1,6 @@
 import datetime
 import pymongo
+import helpers
 
 
 class LogBot(object):
@@ -26,14 +27,20 @@ class LogBot(object):
     def get_field(self, key):
         return self.get_keys()[key]
 
+    def get_t_key_lst(self, key):
+        t_key = self.get_field(key)
+        t_keys = self.get_t_keys()[t_key]
+        return t_keys
+
     def get_collection(self, key):
         cols = self.get_collections()
         return cols[key[0]]
 
     def get_dict(self, key, payload):
-        col = self.get_collection(key)
-        cursor = self.read(col)
-        return {}
+        # TODO error checking
+        key_lst = self.get_t_key_lst(key)
+        dix = dict(zip(key_lst, payload))
+        return dix
 
     def analyze_key(self, key):
         keys = self.get_keys()
@@ -61,10 +68,11 @@ class LogBot(object):
         chat_id = update.message.chat_id
         words = msg.split(' ')
         key = words[0]
-        payload = words[1:]
+        payload = words[1:] + ['']
 
         col, field = self.analyze_key(key)
-        if col and field:
+        correct = helpers.correct_payload(payload)
+        if col and field and correct:
             dix = self.get_dict(key, payload)
             self.update(col, {field: dix})
             ans = ' '.join([field, 'unit has been confirmed...'])

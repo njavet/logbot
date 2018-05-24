@@ -1,5 +1,10 @@
 {
-  "stronglift": ["reps", "weights", "breaks", "comments"],
+  "squat": ["reps", "weights", "breaks", "comments"],
+  "deadlift": ["reps", "weights", "breaks", "comments"],
+  "benchpress": ["reps", "weights", "breaks", "comments"],
+  "overheadpress": ["reps", "weights", "breaks", "comments"],
+  "pendlay_rows": ["reps", "weights", "breaks", "comments"],
+  "pullups": ["reps", "weights", "breaks", "comments"],
   "running": ["time", "distance", "rnd_t", "comments"],
   "cycling": ["time", "avgperf", "calories", "comments"],
   "heavybag": ["rounds", "rnd_t", "break_t", "comments"]
