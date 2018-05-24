@@ -3,9 +3,10 @@ import pymongo
 
 
 class LogBot(object):
-    def __init__(self, db, keys, collections):
+    def __init__(self, db, keys, t_keys, collections):
         self._db = db
         self._keys = keys
+        self._t_keys = t_keys
         self._collections = collections
 
     # accessor methods
@@ -14,6 +15,9 @@ class LogBot(object):
 
     def get_keys(self):
         return self._keys
+
+    def get_t_keys(self):
+        return self._t_keys
 
     def get_collections(self):
         return self._collections

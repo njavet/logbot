@@ -42,11 +42,15 @@ def main():
     with open('keys.json', 'r') as f:
         keys = json.loads(f.read())
 
+    with open('training-keys.json', 'r') as f:
+        t_keys = json.loads(f.read())
+
     with open('collections.json', 'r') as f:
         collections = json.loads(f.read())
 
     gym_bot = logbot.LogBot(db=db,
                             keys=keys,
+                            t_keys=t_keys,
                             collections=collections)
 
     # TODO better logging!
