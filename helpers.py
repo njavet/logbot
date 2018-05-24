@@ -137,8 +137,8 @@ def heavybag_msg_correct(words):
         return False
 
 
-
-
-
-
-
+def stronglift_avgs(reps, weights, breaks):
+    avg_rep = sum(reps) / len(reps)
+    avg_weight = sum(weights) / len(weights)
+    avg_break = sum(breaks) / len(breaks)
+    return avg_rep, avg_weight, avg_break

@@ -4,10 +4,10 @@ import helpers
 
 
 class LogBot(object):
-    def __init__(self, db, keys, t_keys, collections):
+    def __init__(self, db, keys, attrs, collections):
         self._db = db
         self._keys = keys
-        self._t_keys = t_keys
+        self._attrs = attrs
         self._collections = collections
 
     # accessor methods
@@ -17,8 +17,8 @@ class LogBot(object):
     def get_keys(self):
         return self._keys
 
-    def get_t_keys(self):
-        return self._t_keys
+    def get_attrs(self):
+        return self._attrs
 
     def get_collections(self):
         return self._collections
@@ -27,18 +27,16 @@ class LogBot(object):
     def get_field(self, key):
         return self.get_keys()[key]
 
-    def get_t_key_lst(self, key):
-        t_key = self.get_field(key)
-        t_keys = self.get_t_keys()[t_key]
-        return t_keys
+    def get_attr_lst(self, key):
+        field = self.get_field(key)
+        return self.get_attrs()[field]
 
     def get_collection(self, key):
         cols = self.get_collections()
         return cols[key[0]]
 
     def get_dict(self, key, payload):
-        # TODO error checking
-        key_lst = self.get_t_key_lst(key)
+        key_lst = self.get_attr_lst(key)
         dix = dict(zip(key_lst, payload))
         return dix
 
