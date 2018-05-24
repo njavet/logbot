@@ -39,6 +39,7 @@ def main():
 
     db = client.training
 
+    # TODO one config file
     with open('keys.json', 'r') as f:
         keys = json.loads(f.read())
 
@@ -59,10 +60,13 @@ def main():
 
     # help_handler = te.CommandHandler('help', gym_bot.send_help)
     # dispatcher.add_handler(help_handler)
+    stronglift_handler = te.CommandHandler('stronglift', gym_bot.stronglift)
+    dispatcher.add_handler(stronglift_handler)
 
     # message handler
     msg_handler = te.MessageHandler(te.Filters.chat(args.user_id), gym_bot.analyze_msg)
     dispatcher.add_handler(msg_handler)
+
 
     # t0 = datetime.time(hour=0, minute=8)
     job_queue = dispatcher.job_queue

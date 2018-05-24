@@ -142,3 +142,8 @@ def stronglift_avgs(reps, weights, breaks):
     avg_weight = sum(weights) / len(weights)
     avg_break = sum(breaks) / len(breaks)
     return avg_rep, avg_weight, avg_break
+
+
+def stronglift_summary(cursor):
+    for doc in cursor:
+        print(doc)

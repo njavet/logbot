@@ -70,7 +70,7 @@ class LogBot(object):
 
         col, field = self.analyze_key(key)
         correct = helpers.correct_payload(payload)
-        if col and field and correct:
+        if all([col, field, correct]):
             dix = self.get_dict(key, payload)
             self.update(col, {field: dix})
             ans = ' '.join([field, 'unit has been confirmed...'])
@@ -79,3 +79,9 @@ class LogBot(object):
 
         bot.send_message(chat_id=chat_id, text=ans)
 
+
+    # commands
+    def stronglift(self, bot, update):
+        # ugly with the 'stronglift' variable
+        cursor = self.read('stronglift')
+        helpers.stronglift_summary(cursor)
